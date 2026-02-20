@@ -1,0 +1,12 @@
+
+{
+  "name": "DocScript SaaS",
+  "short_name": "DocScript",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "description": "Professional medical prescription generator for doctors.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
