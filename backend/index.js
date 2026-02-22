@@ -388,7 +388,7 @@ app.use((req, res) => {
       }
     }
 
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`DocScript Backend Server running on port ${PORT}`);
       console.log(`${new Date().toISOString()} - Server started`);
     });
@@ -397,3 +397,12 @@ app.use((req, res) => {
     process.exit(1);
   }
 })();
+
+// Helpful global error handlers to capture startup/runtime failures in deployment logs
+process.on('unhandledRejection', (reason, p) => {
+  console.error('Unhandled Rejection at:', p, 'reason:', reason);
+});
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception thrown:', err);
+  process.exit(1);
+});
