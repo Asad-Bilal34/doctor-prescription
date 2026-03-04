@@ -39,7 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate, onResetFor
         <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-200">
           <Stethoscope size={24} />
         </div>
-        <span className="font-black text-xl tracking-tighter text-slate-800">DocScript</span>
+        <span className="font-black text-xl tracking-tighter text-slate-800">Ahmad Dental</span>
       </div>
 
       <nav className="flex-1 space-y-2">
