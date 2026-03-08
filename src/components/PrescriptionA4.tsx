@@ -1,5 +1,4 @@
 import React from 'react';
-import { Phone, Image as ImageIcon } from 'lucide-react';
 
 export interface Patient {
   id: string;
@@ -37,186 +36,180 @@ interface PrescriptionA4Props {
 
 export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) => {
   return (
-    <div className="prescription-a4 bg-white h-[297mm] w-full max-w-[210mm] mx-auto border border-slate-300 shadow-2xl flex flex-col text-slate-800 relative" style={{ fontFamily: 'Arial, sans-serif' }}>
+    <div className="prescription-a4 bg-white h-[297mm] w-full max-w-[210mm] mx-auto shadow-2xl flex flex-col text-slate-800" style={{ fontFamily: 'Arial, sans-serif' }}>
       <style>{`
         @media print {
           @page { margin: 0 !important; size: A4 portrait; }
           * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-          html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; }
+          html, body { margin: 0 !important; padding: 0 !important; }
           .prescription-a4 { 
             box-shadow: none !important; 
             border: none !important; 
             margin: 0 !important; 
-            padding: 0 !important;
             width: 100vw !important; 
             height: 100vh !important;
             max-width: 100% !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
           }
           .no-print { display: none !important; }
         }
       `}</style>
 
-      {/* HEADER SECTION */}
-      <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white px-6 py-3 border-b-4 border-blue-400 flex justify-center items-center">
-        <h1 className="text-3xl font-black tracking-widest" dir="rtl">احمد بلال ڈینٹل کلینک</h1>
+      {/* TOP HEADER - Navy Blue with Urdu Text */}
+      <div className="relative bg-white border-b-4 border-blue-900 px-8 py-4">
+        {/* Horizontal Lines */}
+        <div className="absolute top-6 left-8 w-32 space-y-1">
+          {[...Array(5)].map((_, i) => <div key={i} className="h-0.5 bg-blue-900"></div>)}
+        </div>
+        <div className="absolute top-6 right-8 w-32 space-y-1">
+          {[...Array(5)].map((_, i) => <div key={i} className="h-0.5 bg-blue-900"></div>)}
+        </div>
+        {/* Center Navy Box with Urdu */}
+        <div className="bg-blue-900 text-white text-center py-3 mx-auto" style={{ width: '60%' }}>
+          <h1 className="text-2xl font-bold urdu-text" dir="rtl">احمد بلال ڈینٹل کلینک</h1>
+        </div>
       </div>
 
       {/* DOCTOR INFO SECTION */}
-      <div className="bg-slate-50 px-6 py-2 border-b-2 border-blue-400">
-        <div className="grid grid-cols-3 gap-8 items-center">
-          {/* Left: English */}
-          <div>
-            <h2 className="text-lg font-black text-slate-900">{config.drNameEn}</h2>
-            <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-tight">{config.drDegreesEn}</p>
+      <div className="bg-white px-8 py-4 border-b border-slate-800">
+        <div className="flex items-start justify-between">
+          {/* Left: English Info */}
+          <div className="text-left flex-1">
+            <h2 className="text-3xl font-bold text-blue-900 mb-1">Dr. Ahmad Bilal</h2>
+            <p className="text-[11px] font-bold text-blue-900 leading-[1.4]">
+              BDS, RDS (PNDC)<br/>
+              Dental Surgeon & Oral Physician<br/>
+              Ex-house Surgeon Nishtar Dental Hospital Multan
+            </p>
           </div>
+          
           {/* Center: Logo */}
-          <div className="flex justify-center">
-            {config.logo && <img src={config.logo} className="h-16 w-16 object-contain" alt="Logo" />}
+          <div className="flex flex-col items-center justify-start px-8">
+            <div className="relative">
+              {/* Tooth Logo Circle */}
+              <div className="w-16 h-16 rounded-full border-[3px] border-blue-900 flex items-center justify-center bg-white relative z-10">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="white" stroke="#1e3a8a" strokeWidth="2">
+                  <path d="M12 3c-1.5 0-3 .5-3.5 2-.3.8-.5 2-.5 3v6c0 1.5.5 3 1 4s1.5 2 2 2.5c.3.3.7.5 1 .5s.7-.2 1-.5c.5-.5 1.5-1.5 2-2.5s1-2.5 1-4V8c0-1-.2-2.2-.5-3-.5-1.5-2-2-3.5-2z" fill="white" stroke="#1e3a8a"/>
+                </svg>
+              </div>
+              {/* Orange Arc - Right Side */}
+              <div className="absolute top-0 right-0 w-16 h-16">
+                <svg className="w-16 h-16" viewBox="0 0 100 100">
+                  <path d="M 50 6 A 44 44 0 0 1 94 50 A 44 44 0 0 1 50 94" fill="none" stroke="#f97316" strokeWidth="6"/>
+                </svg>
+              </div>
+            </div>
+            <div className="text-center mt-1">
+              <p className="text-[9px] font-bold text-blue-900 leading-tight">AHMAD BILAL</p>
+              <p className="text-[8px] font-semibold text-blue-900">DENTAL CLINIC</p>
+            </div>
           </div>
-          {/* Right: Urdu */}
-          <div className="text-right urdu-text" dir="rtl">
-            <h2 className="text-lg font-black text-slate-900">{config.drNameUr}</h2>
-            <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-relaxed pt-1">{config.drDegreesUr}</p>
+          
+          {/* Right: Urdu Info */}
+          <div className="text-right urdu-text flex-1" dir="rtl">
+            <h2 className="text-3xl font-bold text-blue-900 mb-1">ڈاکٹر احمد بلال</h2>
+            <p className="text-[11px] font-bold text-blue-900 leading-[2]">
+              بی ڈی ایس ، آر ڈی ایس (پی این ڈی سی)<br/>
+              ڈینٹل سرجن اینڈ اورل فزیشن<br/>
+              ایکس ہاوس سرجن نشتر ڈینٹل ہسپتال ملتان
+            </p>
           </div>
         </div>
-        <p className="text-[10px] font-bold text-slate-700 text-center mt-1">Cell: {config.clinicContact} </p>
+        <p className="text-center text-base font-bold text-blue-900 mt-3">Cell No:0300-7823434</p>
       </div>
 
       {/* PATIENT INFO BAR */}
-      <div className="bg-white px-6 py-2 border-b border-slate-300 flex justify-between text-[11px] font-bold">
-        <div><span className="text-slate-500">Name:</span> <span className="text-slate-900 border-b border-dotted border-slate-400 ml-1">{data.name}</span></div>
-        <div><span className="text-slate-500">Age:</span> <span className="text-slate-900 border-b border-dotted border-slate-400 ml-1">{data.age}</span></div>
-        <div><span className="text-slate-500">Sex:</span> <span className="text-slate-900 border-b border-dotted border-slate-400 ml-1">{data.sex}</span></div>
-        <div><span className="text-slate-500">Date:</span> <span className="text-slate-900 border-b border-dotted border-slate-400 ml-1">{data.date}</span></div>
-        <div><span className="text-slate-500">Mobile:</span> <span className="text-slate-900 border-b border-dotted border-slate-400 ml-1">{data.mobile}</span></div>
+      <div className="bg-white px-8 py-3 border-b border-slate-400">
+        <div className="grid grid-cols-5 gap-4 text-sm">
+          <div className="flex items-center">
+            <span className="font-bold text-blue-900 italic">Name:</span>
+            <span className="ml-2 border-b border-dotted border-blue-900 flex-1">{data.name}</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-bold text-blue-900 italic">Age:</span>
+            <span className="ml-2 border-b border-dotted border-blue-900 flex-1">{data.age}</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-bold text-blue-900 italic">Sex:</span>
+            <span className="ml-2 border-b border-dotted border-blue-900 flex-1">{data.sex}</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-bold text-blue-900 italic">Date:</span>
+            <span className="ml-2 border-b border-dotted border-blue-900 flex-1">{data.date}</span>
+          </div>
+          <div className="flex items-center">
+            <span className="font-bold text-blue-900 italic">Mobile:</span>
+            <span className="ml-2 border-b border-dotted border-blue-900 flex-1">{data.mobile}</span>
+          </div>
+        </div>
       </div>
 
       {/* MAIN CONTENT - 3 COLUMNS */}
-      <div className="flex-1 flex border-t-2 border-slate-400">
-        {/* COLUMN 1: PRESENTING COMPLAINT & DISEASES (25%) */}
-        <div className="w-1/4 border-r-2 border-slate-400 px-4 py-4 flex flex-col">
-          {/* Presenting Complaint */}
-          <div className="mb-7">
-            <h4 className="text-[11px] font-black text-blue-700 mb-2">Presenting Complaint:</h4>
-            <div className="text-[10px] text-slate-800 whitespace-pre-wrap leading-relaxed min-h-[80px]">
-              {data.advice ? data.advice.split('\n').map((line, i) => (
-                <div key={i}>{line}</div>
-              )) : (
-                <>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                </>
-              )}
+      <div className="flex-1 flex">
+        {/* LEFT COLUMN: Presenting Complaint & Diseases */}
+        <div className="w-1/4 border-r-2 border-blue-900 px-4 py-6">
+          <div className="mb-8">
+            <h4 className="text-sm font-bold text-blue-900 mb-3">Presenting Complaint:</h4>
+            <div className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed min-h-[200px]">
+              {data.complaints || ''}
             </div>
           </div>
-
-          {/* Treatment/Medications */}
-          <div className="flex-1 ">
-            <h4 className="text-[11px] font-black text-blue-700 mb-3">HyperTension_____</h4>
-            <h4 className="text-[11px] font-black text-blue-700 mb-3">Diabetes Mellitus___</h4>
-            <h4 className="text-[11px] font-black text-blue-700 mb-3">Hepatitis B_____</h4>
-            <h4 className="text-[11px] font-black text-blue-700 mb-3">Hepatitis C_____</h4>
-            
+          
+          <div className="space-y-3">
+            <div className="flex items-center">
+              <span className="text-sm font-bold text-blue-900">Hypertension</span>
+              <span className="ml-2 border-b border-blue-900 flex-1"></span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-sm font-bold text-blue-900">Diabetes Mellitus</span>
+              <span className="ml-2 border-b border-blue-900 flex-1"></span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-sm font-bold text-blue-900">Hepatitis B</span>
+              <span className="ml-2 border-b border-blue-900 flex-1"></span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-sm font-bold text-blue-900">Hepatitis C</span>
+              <span className="ml-2 border-b border-blue-900 flex-1"></span>
+            </div>
           </div>
         </div>
 
-        {/* COLUMN 2: RX LARGE SPACE (50%) */}
-        <div className="w-1/2 border-r-2 border-slate-400 px-7 py-4 flex flex-col ">
-          <div className="text-5xl font-black text-blue-900 italic  mt-4">Rx.</div>
-          <div className="flex-1 w-full flex flex-col justify-around">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="min-h-[25px]">&nbsp;</div>
-            ))}
-          </div>
-          {/* Signature */}
-          <div className="border-t-2 border-slate-400  ">
-            
-            <span className="text-[9px] font-black text-blue-700">For Appointment:</span><br />
-            <span className="text-[9px] font-black text-blue-700">03007311425</span>
-            <span className="text-[9px] font-black text-blue-700 px-3">کلینک آنے سے پہلے اس نمبر پر رابطہ کریں۔</span>
+        {/* CENTER COLUMN: Rx */}
+        <div className="w-1/2 border-r-2 border-blue-900 px-8 py-6 flex flex-col">
+          <div className="text-6xl font-bold text-blue-900 italic mb-8">Rx.</div>
+          <div className="flex-1"></div>
+          
+          {/* Bottom Appointment Info */}
+          <div className="border-t-2 border-blue-900 pt-3">
+            <p className="text-sm font-bold text-blue-900 italic">For Appointment:</p>
+            <p className="text-xl font-bold text-blue-900">0300-7311435</p>
+            <p className="text-xs font-semibold text-blue-900 urdu-text" dir="rtl">کلینک آنے سے پہلے اس نمبر پر رابطہ کریں۔</p>
           </div>
         </div>
 
-        {/* COLUMN 3: ADVICE & TREATMENT (25%) */}
-        <div className="w-1/4 px-3 py-5 flex flex-col">
-          {/* Advice */}
-          <div className="mb-7">
-            <h4 className="text-[11px] font-black text-blue-700 mb-2">Advice:</h4>
-            <div className="text-[10px] text-slate-800 whitespace-pre-wrap leading-relaxed min-h-[80px]">
-              {data.advice ? data.advice.split('\n').map((line, i) => (
-                <div key={i}>{line}</div>
-              )) : (
-                <>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                </>
-              )}
+        {/* RIGHT COLUMN: Advice & Treatment */}
+        <div className="w-1/4 px-4 py-6 flex flex-col">
+          <div className="mb-8">
+            <h4 className="text-sm font-bold text-blue-900 mb-3">Advice:</h4>
+            <div className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed min-h-[150px]">
+              {data.advice || ''}
             </div>
           </div>
-
-          {/* Treatment/Medications */}
+          
           <div className="flex-1">
-            <h4 className="text-[11px] font-black text-blue-700 mb-2">Treatment:</h4>
-            <div className="text-[10px] text-slate-800 whitespace-pre-wrap leading-relaxed min-h-[120px]">
-              {data.treatment ? data.treatment.split('\n').map((line, i) => (
-                <div key={i}>{line}</div>
-              )) : (
-                <>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                  <div>&nbsp;</div>
-                </>
-              )}
+            <h4 className="text-sm font-bold text-blue-900 mb-3">Treatment:</h4>
+            <div className="text-xs text-slate-800 whitespace-pre-wrap leading-relaxed">
+              {data.treatment || ''}
             </div>
-          </div>
-
-          {/* Signature */}
-          <div className="border-t-2 border-slate-400 pt-3 mt-4 text-center">
-            <div className="h-8"></div>
-            <span className="text-[9px] font-black text-blue-700">Doctor Signature</span>
           </div>
         </div>
       </div>
 
       {/* FOOTER */}
-      <div className="bg-slate-900 text-white px-6 py-2 text-[9px] font-bold text-center border-t-4 border-blue-400">
-        <p className="text-[16px] text-slate-300">Nzd Sarkari Hospital(RHC)Bilmukabil gu petrol pump rohellan wali</p>
+      <div className="bg-white border-t-4 border-blue-900 px-8 py-3 text-center">
+        <p className="text-sm font-bold text-blue-900 urdu-text" dir="rtl">
+          نزد سرکاری ہسپتال (RHC) بالمقابل گوپیٹرول پمپ روہیلاں والی
+        </p>
       </div>
     </div>
   );
