@@ -33,9 +33,9 @@ export const STORAGE_KEY = 'docscript_data_v1';
 export const CONFIG_KEY = 'docscript_config_v1';
 
 export const DEFAULT_CONFIG: ClinicConfig = {
-  drNameEn: 'Ahmed',
+  drNameEn: 'Dr. Ahmed',
   drDegreesEn: 'BDS , RDS(PMDC)\nDental Surgeon & Oral Physician\nEx House Surgeon Nishter Dental Hospital Multan',
-  drNameUr: 'ڈاکٹراحمد',
+  drNameUr: 'ڈاکٹر احمد',
   drDegreesUr: 'بی ڈی ایس, آر ڈی ایس(پی ایم ڈی سی)\nڈینٹل سرجن & اورل فزیشن\nایکس ہاؤس سرجن نشتر ڈینٹل ہسپتال ملتان',
   clinicName: 'AHMAD BILAL DENTAL CLINIC',
   clinicAddress: 'NZD RHC opposite Go pump rohillanwali',

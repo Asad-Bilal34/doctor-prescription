@@ -59,7 +59,7 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
         <div className="grid grid-cols-2 gap-8">
           {/* Left: English */}
           <div>
-            <h2 className="text-lg font-black text-slate-900">Dr. {config.drNameEn}</h2>
+            <h2 className="text-lg font-black text-slate-900">{config.drNameEn}</h2>
             <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-tight">{config.drDegreesEn}</p>
           </div>
           {/* Right: Urdu */}
