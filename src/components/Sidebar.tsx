@@ -1,7 +1,8 @@
-import React from 'react';
-import { LayoutDashboard, Plus, History, Settings, LogOut, Stethoscope } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { LayoutDashboard, Plus, History, Settings, LogOut } from 'lucide-react';
 import { SidebarLink } from './common/SidebarLink';
 import { useNavigate } from 'react-router-dom';
+import { CONFIG_KEY } from '../types';
 
 interface SidebarProps {
   active: 'dashboard' | 'new' | 'history' | 'settings';
@@ -13,6 +14,18 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate, onResetForm, onLogout }) => {
   const navigate = useNavigate();
+  const [logo, setLogo] = useState<string | null>(null);
+
+  useEffect(() => {
+    const savedConfig = localStorage.getItem(CONFIG_KEY);
+    if (savedConfig) {
+      try {
+        const config = JSON.parse(savedConfig);
+        setLogo(config.logo);
+      } catch {}
+    }
+  }, []);
+
   const handleNewPrescription = () => {
     // prevent navigation for unapproved users
     // @ts-ignore
@@ -36,9 +49,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate, onResetFor
   return (
     <aside className="hidden md:flex flex-col w-64 bg-white border-r border-slate-200 p-6 no-print">
       <div className="flex items-center gap-3 mb-10">
-        <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-200">
-          <Stethoscope size={24} />
-        </div>
+        {logo && (
+          <div className="flex items-center justify-center">
+            <img src={logo} alt="Clinic Logo" className="w-9 h-9 object-contain" />
+          </div>
+        )}
         <span className="font-black text-xl tracking-tighter text-slate-800">Ahmad Dental</span>
       </div>
 
