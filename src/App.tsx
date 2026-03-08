@@ -24,7 +24,11 @@ function MainApp() {
     const savedPatients = localStorage.getItem(STORAGE_KEY);
     const savedConfig = localStorage.getItem(CONFIG_KEY);
     if (savedPatients) setPatients(JSON.parse(savedPatients));
-    if (savedConfig) setConfig(JSON.parse(savedConfig));
+    if (savedConfig) {
+      const parsedConfig = JSON.parse(savedConfig);
+      setConfig(parsedConfig);
+      console.log('Loaded config with logo:', parsedConfig.logo ? 'Yes' : 'No');
+    }
     // read optional view from query param (e.g., ?view=new)
     try {
       const params = new URLSearchParams(location.search);
@@ -85,12 +89,15 @@ function MainApp() {
   };
 
   const handleConfigChange = (field: keyof ClinicConfig, value: string | null) => {
-    setConfig({ ...config, [field]: value });
+    const updatedConfig = { ...config, [field]: value };
+    setConfig(updatedConfig);
+    // Auto-save to localStorage immediately
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(updatedConfig));
   };
 
   const handleSaveSettings = () => {
     localStorage.setItem(CONFIG_KEY, JSON.stringify(config));
-    alert('Settings updated!');
+    alert('Settings saved successfully!');
   };
 
   const handleDelete = (patientId: string) => {

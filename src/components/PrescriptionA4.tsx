@@ -84,20 +84,24 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
           
           {/* Center: Logo */}
           <div className="flex flex-col items-center justify-start px-8">
-            <div className="relative">
-              {/* Tooth Logo Circle */}
-              <div className="w-16 h-16 rounded-full border-[3px] border-blue-900 flex items-center justify-center bg-white relative z-10">
-                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="white" stroke="#1e3a8a" strokeWidth="2">
-                  <path d="M12 3c-1.5 0-3 .5-3.5 2-.3.8-.5 2-.5 3v6c0 1.5.5 3 1 4s1.5 2 2 2.5c.3.3.7.5 1 .5s.7-.2 1-.5c.5-.5 1.5-1.5 2-2.5s1-2.5 1-4V8c0-1-.2-2.2-.5-3-.5-1.5-2-2-3.5-2z" fill="white" stroke="#1e3a8a"/>
-                </svg>
+            {config.logo ? (
+              <img src={config.logo} alt="Clinic Logo" className="w-16 h-16 object-contain mb-1" />
+            ) : (
+              <div className="relative">
+                {/* Tooth Logo Circle */}
+                <div className="w-16 h-16 rounded-full border-[3px] border-blue-900 flex items-center justify-center bg-white relative z-10">
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="white" stroke="#1e3a8a" strokeWidth="2">
+                    <path d="M12 3c-1.5 0-3 .5-3.5 2-.3.8-.5 2-.5 3v6c0 1.5.5 3 1 4s1.5 2 2 2.5c.3.3.7.5 1 .5s.7-.2 1-.5c.5-.5 1.5-1.5 2-2.5s1-2.5 1-4V8c0-1-.2-2.2-.5-3-.5-1.5-2-2-3.5-2z" fill="white" stroke="#1e3a8a"/>
+                  </svg>
+                </div>
+                {/* Orange Arc - Right Side */}
+                <div className="absolute top-0 right-0 w-16 h-16">
+                  <svg className="w-16 h-16" viewBox="0 0 100 100">
+                    <path d="M 50 6 A 44 44 0 0 1 94 50 A 44 44 0 0 1 50 94" fill="none" stroke="#f97316" strokeWidth="6"/>
+                  </svg>
+                </div>
               </div>
-              {/* Orange Arc - Right Side */}
-              <div className="absolute top-0 right-0 w-16 h-16">
-                <svg className="w-16 h-16" viewBox="0 0 100 100">
-                  <path d="M 50 6 A 44 44 0 0 1 94 50 A 44 44 0 0 1 50 94" fill="none" stroke="#f97316" strokeWidth="6"/>
-                </svg>
-              </div>
-            </div>
+            )}
             <div className="text-center mt-1">
               <p className="text-[9px] font-bold text-blue-900 leading-tight">AHMAD BILAL</p>
               <p className="text-[8px] font-semibold text-blue-900">DENTAL CLINIC</p>
