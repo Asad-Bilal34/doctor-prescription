@@ -60,25 +60,26 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
       `}</style>
 
       {/* HEADER SECTION */}
-      <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white px-6 py-3 border-b-4 border-blue-400 flex justify-between items-center">
-        <div className="flex-1">
-          <h1 className="text-xl font-black tracking-widest ">{config.clinicName}</h1>
-        </div>
-        {config.logo && <img src={config.logo} className="h-12 w-12 object-contain" alt="Logo" />}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white px-6 py-3 border-b-4 border-blue-400 flex justify-center items-center">
+        <h1 className="text-3xl font-black tracking-widest" dir="rtl">احمد بلال ڈینٹل کلینک</h1>
       </div>
 
       {/* DOCTOR INFO SECTION */}
       <div className="bg-slate-50 px-6 py-2 border-b-2 border-blue-400">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-3 gap-8 items-center">
           {/* Left: English */}
           <div>
             <h2 className="text-lg font-black text-slate-900">{config.drNameEn}</h2>
             <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-tight">{config.drDegreesEn}</p>
           </div>
+          {/* Center: Logo */}
+          <div className="flex justify-center">
+            {config.logo && <img src={config.logo} className="h-16 w-16 object-contain" alt="Logo" />}
+          </div>
           {/* Right: Urdu */}
           <div className="text-right urdu-text" dir="rtl">
             <h2 className="text-lg font-black text-slate-900">{config.drNameUr}</h2>
-            <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-tight">{config.drDegreesUr}</p>
+            <p className="text-[10px] font-bold text-slate-600 whitespace-pre-wrap leading-relaxed pt-1">{config.drDegreesUr}</p>
           </div>
         </div>
         <p className="text-[10px] font-bold text-slate-700 text-center mt-1">Cell: {config.clinicContact} </p>
