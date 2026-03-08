@@ -123,13 +123,16 @@ export const ClinicSettings: React.FC<ClinicSettingsProps> = ({
               value={config.clinicName} 
               onChange={v => onConfigChange('clinicName', v)} 
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <InputField 
-                label="Contact Numbers" 
-                value={config.clinicContact} 
-                onChange={v => onConfigChange('clinicContact', v)} 
-              />
-            </div>
+            <InputField 
+              label="Clinic Address" 
+              value={config.clinicAddress} 
+              onChange={v => onConfigChange('clinicAddress', v)} 
+            />
+            <InputField 
+              label="Contact Numbers" 
+              value={config.clinicContact} 
+              onChange={v => onConfigChange('clinicContact', v)} 
+            />
           </div>
         </section>
 

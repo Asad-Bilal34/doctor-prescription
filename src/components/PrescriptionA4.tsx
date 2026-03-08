@@ -65,60 +65,56 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
         </div>
         {/* Center Navy Box with Urdu */}
         <div className="bg-blue-900 text-white text-center py-3 mx-auto" style={{ width: '60%' }}>
-          <h1 className="text-2xl font-bold urdu-text" dir="rtl">احمد بلال ڈینٹل کلینک</h1>
+          <h1 className="text-2xl font-bold urdu-text" dir="rtl">{config.clinicName}</h1>
         </div>
       </div>
 
       {/* DOCTOR INFO SECTION */}
-      <div className="bg-white px-8 py-4 border-b border-slate-800">
-        <div className="flex items-start justify-between">
+      <div className="bg-white px-8 py-5 border-b border-slate-800">
+        <div className="flex items-center justify-between gap-6">
           {/* Left: English Info */}
           <div className="text-left flex-1">
-            <h2 className="text-3xl font-bold text-blue-900 mb-1">Dr. Ahmad Bilal</h2>
-            <p className="text-[11px] font-bold text-blue-900 leading-[1.4]">
-              BDS, RDS (PNDC)<br/>
-              Dental Surgeon & Oral Physician<br/>
-              Ex-house Surgeon Nishtar Dental Hospital Multan
+            <h2 className="text-[32px] font-bold text-blue-900 mb-2 leading-none">{config.drNameEn}</h2>
+            <p className="text-[12px] font-bold text-blue-900 leading-[1.6] whitespace-pre-line">
+              {config.drDegreesEn}
             </p>
           </div>
           
           {/* Center: Logo */}
-          <div className="flex flex-col items-center justify-start px-8">
+          <div className="flex flex-col items-center justify-center">
             {config.logo ? (
-              <img src={config.logo} alt="Clinic Logo" className="w-16 h-16 object-contain mb-1" />
+              <img src={config.logo} alt="Clinic Logo" className="w-20 h-20 object-contain" />
             ) : (
               <div className="relative">
                 {/* Tooth Logo Circle */}
-                <div className="w-16 h-16 rounded-full border-[3px] border-blue-900 flex items-center justify-center bg-white relative z-10">
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="white" stroke="#1e3a8a" strokeWidth="2">
+                <div className="w-20 h-20 rounded-full border-[3px] border-blue-900 flex items-center justify-center bg-white relative z-10">
+                  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="white" stroke="#1e3a8a" strokeWidth="2">
                     <path d="M12 3c-1.5 0-3 .5-3.5 2-.3.8-.5 2-.5 3v6c0 1.5.5 3 1 4s1.5 2 2 2.5c.3.3.7.5 1 .5s.7-.2 1-.5c.5-.5 1.5-1.5 2-2.5s1-2.5 1-4V8c0-1-.2-2.2-.5-3-.5-1.5-2-2-3.5-2z" fill="white" stroke="#1e3a8a"/>
                   </svg>
                 </div>
                 {/* Orange Arc - Right Side */}
-                <div className="absolute top-0 right-0 w-16 h-16">
-                  <svg className="w-16 h-16" viewBox="0 0 100 100">
+                <div className="absolute top-0 right-0 w-20 h-20">
+                  <svg className="w-20 h-20" viewBox="0 0 100 100">
                     <path d="M 50 6 A 44 44 0 0 1 94 50 A 44 44 0 0 1 50 94" fill="none" stroke="#f97316" strokeWidth="6"/>
                   </svg>
                 </div>
               </div>
             )}
             <div className="text-center mt-1">
-              <p className="text-[9px] font-bold text-blue-900 leading-tight">AHMAD BILAL</p>
-              <p className="text-[8px] font-semibold text-blue-900">DENTAL CLINIC</p>
+              <p className="text-[10px] font-bold text-blue-900 leading-tight">AHMAD BILAL</p>
+              <p className="text-[9px] font-semibold text-blue-900">DENTAL CLINIC</p>
             </div>
           </div>
           
           {/* Right: Urdu Info */}
           <div className="text-right urdu-text flex-1" dir="rtl">
-            <h2 className="text-3xl font-bold text-blue-900 mb-1">ڈاکٹر احمد بلال</h2>
-            <p className="text-[11px] font-bold text-blue-900 leading-[2]">
-              بی ڈی ایس ، آر ڈی ایس (پی این ڈی سی)<br/>
-              ڈینٹل سرجن اینڈ اورل فزیشن<br/>
-              ایکس ہاوس سرجن نشتر ڈینٹل ہسپتال ملتان
+            <h2 className="text-[32px] font-bold text-blue-900 mb-2 leading-none">{config.drNameUr}</h2>
+            <p className="text-[12px] font-bold text-blue-900 leading-[2.3] whitespace-pre-line">
+              {config.drDegreesUr}
             </p>
           </div>
         </div>
-        <p className="text-center text-base font-bold text-blue-900 ">Cell No:0300-7823434</p>
+        <p className="text-center text-lg font-bold text-blue-900 mt-2">Cell No:{config.clinicContact}</p>
       </div>
 
       {/* PATIENT INFO BAR */}
@@ -212,7 +208,7 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
       {/* FOOTER */}
       <div className="bg-white border-t-4 border-blue-900 px-8 py-3 text-center">
         <p className="text-sm font-bold text-blue-900 urdu-text" dir="rtl">
-          نزد سرکاری ہسپتال (RHC) بالمقابل گوپیٹرول پمپ روہیلاں والی
+          {config.clinicAddress}
         </p>
       </div>
     </div>
