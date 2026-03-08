@@ -33,13 +33,13 @@ export const STORAGE_KEY = 'docscript_data_v1';
 export const CONFIG_KEY = 'docscript_config_v1';
 
 export const DEFAULT_CONFIG: ClinicConfig = {
-  drNameEn: 'Muhammad Ahmed',
-  drDegreesEn: 'MBBS, FCPS (Medicine)\nGeneral Physician & Consultant',
+  drNameEn: 'Ahmed',
+  drDegreesEn: 'BDS , RDS(PMDC)\nDental Surgeon & Oral Physician\nEx House Surgeon Nishter Dental Hospital Multan',
   drNameUr: 'ڈاکٹراحمد',
-  drDegreesUr: 'ایم بی بی ایس، ایف سی پی ایس\nماہر امراضِ جگر و معدہ',
-  clinicName: 'REHMAN MEDICAL CENTER',
-  clinicAddress: 'Plot 45-C, Medical Lane, Phase 5, Karachi',
-  clinicContact: '021-34567890 / 0300-1234567',
+  drDegreesUr: 'بی ڈی ایس, آر ڈی ایس(پی ایم ڈی سی)\nڈینٹل سرجن & اورل فزیشن\nایکس ہاؤس سرجن نشتر ڈینٹل ہسپتال ملتان',
+  clinicName: 'AHMAD BILAL DENTAL CLINIC',
+  clinicAddress: 'NZD RHC opposite Go pump rohillanwali',
+  clinicContact: '0300-7311425',
   logo: null
 };
 
