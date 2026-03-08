@@ -180,18 +180,9 @@ function MainApp() {
 
       <style>{`
         @media print {
-          .prescription-a4 {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 15mm;
-            margin: 0 auto;
-            border: none !important;
-            box-shadow: none !important;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-          }
+          @page { margin: 0 !important; size: A4 portrait; }
+          body, html { margin: 0 !important; padding: 0 !important; }
+          main { padding: 0 !important; margin: 0 !important; }
           .no-print { display: none !important; }
         }
       `}</style>

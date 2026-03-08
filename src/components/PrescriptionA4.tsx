@@ -37,11 +37,24 @@ interface PrescriptionA4Props {
 
 export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) => {
   return (
-    <div className="prescription-a4 bg-white h-[297mm] w-full max-w-[210mm] mx-auto border border-slate-300 shadow-2xl flex flex-col text-slate-800 relative overflow-hidden" style={{ fontFamily: 'Arial, sans-serif' }}>
+    <div className="prescription-a4 bg-white h-[297mm] w-full max-w-[210mm] mx-auto border border-slate-300 shadow-2xl flex flex-col text-slate-800 relative" style={{ fontFamily: 'Arial, sans-serif' }}>
       <style>{`
         @media print {
-          body { margin: 0; padding: 0; }
-          .prescription-a4 { box-shadow: none; border: none; margin: 0; height: 297mm !important; width: 210mm !important; position: absolute; top: 0; left: 0; }
+          @page { margin: 0 !important; size: A4 portrait; }
+          * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+          html, body { margin: 0 !important; padding: 0 !important; width: 100% !important; height: 100% !important; }
+          .prescription-a4 { 
+            box-shadow: none !important; 
+            border: none !important; 
+            margin: 0 !important; 
+            padding: 0 !important;
+            width: 100vw !important; 
+            height: 100vh !important;
+            max-width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+          }
           .no-print { display: none !important; }
         }
       `}</style>

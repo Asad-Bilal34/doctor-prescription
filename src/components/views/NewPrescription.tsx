@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileText, Save, Printer, AlertCircle } from 'lucide-react';
 import { InputField } from '../common/InputField';
-
+// import { Textarea } from '../common/Textarea';
 import { Checkbox } from '../common/Checkbox';
 import { PrescriptionA4, Patient, ClinicConfig } from '../PrescriptionA4';
 
