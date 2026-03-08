@@ -67,7 +67,7 @@ export function Login() {
       <div className="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden">
         <div className="bg-gradient-to-r from-blue-900 to-blue-800 px-8 py-6 text-center">
           <h1 className="text-2xl font-bold text-white mb-1">Ahmad Bilal Dental Clinic</h1>
-          <p className="text-blue-200 text-sm">احمد بلال ڈینٹل کلینک</p>
+          {/* <p className="text-blue-200 text-sm">احمد بلال ڈینٹل کلینک</p> */}
         </div>
         <div className="p-8">
           {error && <div className="bg-red-50 border-l-4 border-red-500 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}

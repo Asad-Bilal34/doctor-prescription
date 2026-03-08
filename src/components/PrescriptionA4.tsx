@@ -118,7 +118,7 @@ export const PrescriptionA4: React.FC<PrescriptionA4Props> = ({ config, data }) 
             </p>
           </div>
         </div>
-        <p className="text-center text-base font-bold text-blue-900 mt-3">Cell No:0300-7823434</p>
+        <p className="text-center text-base font-bold text-blue-900 ">Cell No:0300-7823434</p>
       </div>
 
       {/* PATIENT INFO BAR */}
