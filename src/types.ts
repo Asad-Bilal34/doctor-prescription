@@ -33,9 +33,9 @@ export const STORAGE_KEY = 'docscript_data_v1';
 export const CONFIG_KEY = 'docscript_config_v1';
 
 export const DEFAULT_CONFIG: ClinicConfig = {
-  drNameEn: 'Dr. Muhammad Ahmed',
+  drNameEn: 'Muhammad Ahmed',
   drDegreesEn: 'MBBS, FCPS (Medicine)\nGeneral Physician & Consultant',
-  drNameUr: 'ڈاکٹر محمد احمد',
+  drNameUr: 'ڈاکٹراحمد',
   drDegreesUr: 'ایم بی بی ایس، ایف سی پی ایس\nماہر امراضِ جگر و معدہ',
   clinicName: 'REHMAN MEDICAL CENTER',
   clinicAddress: 'Plot 45-C, Medical Lane, Phase 5, Karachi',
