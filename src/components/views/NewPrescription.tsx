@@ -30,14 +30,14 @@ export const NewPrescription: React.FC<NewPrescriptionProps> = ({
       <div className="space-y-6 no-print">
         <div className="flex items-center justify-between bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
           <h2 className="font-black text-xl flex items-center gap-2">
-            <FileText className="text-blue-600" />
+            <FileText className="text-blue-900" />
             {formState.id ? 'Edit Prescription' : 'New Prescription'}
           </h2>
           <div className="flex gap-2">
-            <button onClick={onSave} className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-100">
+            <button onClick={onSave} className="bg-blue-900 hover:bg-blue-800 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-100">
               <Save size={18} /> Save
             </button>
-            <button onClick={onPrint} className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-100">
+            <button onClick={onPrint} className="bg-blue-900 hover:bg-blue-800 text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-100">
               <Printer size={18} /> Print
             </button>
           </div>
@@ -75,7 +75,7 @@ export const NewPrescription: React.FC<NewPrescriptionProps> = ({
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Sex</label>
                   <select 
-                    className="w-full p-3 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 font-bold text-slate-700 appearance-none"
+                    className="w-full p-3 bg-slate-50 border border-slate-100 rounded-xl outline-none focus:ring-2 focus:ring-blue-900 font-bold text-slate-700 appearance-none"
                     value={formState.sex}
                     onChange={e => onFormChange('sex', e.target.value)}
                   >

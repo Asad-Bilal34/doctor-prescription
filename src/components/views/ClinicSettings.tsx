@@ -138,7 +138,7 @@ export const ClinicSettings: React.FC<ClinicSettingsProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-10 border-t border-slate-100">
           <div className="space-y-5">
-            <h4 className="text-sm font-black text-blue-600 uppercase tracking-widest border-b border-blue-50 pb-2">English Branding</h4>
+            <h4 className="text-sm font-black text-blue-900 uppercase tracking-widest border-b border-blue-50 pb-2">English Branding</h4>
             <InputField 
               label="Doctor Name" 
               value={config.drNameEn} 
@@ -152,7 +152,7 @@ export const ClinicSettings: React.FC<ClinicSettingsProps> = ({
             />
           </div>
           <div className="space-y-5">
-            <h4 className="text-sm font-black text-emerald-600 uppercase tracking-widest border-b border-emerald-50 pb-2">Urdu Branding</h4>
+            <h4 className="text-sm font-black text-blue-900 uppercase tracking-widest border-b border-blue-50 pb-2">Urdu Branding</h4>
             <div dir="rtl" className="space-y-5">
               <InputField 
                 label="ڈاکٹر کا نام" 
@@ -172,7 +172,7 @@ export const ClinicSettings: React.FC<ClinicSettingsProps> = ({
         <div className="pt-6 flex justify-end">
           <button 
             onClick={onSaveSettings}
-            className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-black shadow-2xl active:scale-95 transition-all"
+            className="bg-blue-900 text-white px-10 py-4 rounded-2xl font-black shadow-2xl active:scale-95 transition-all hover:bg-blue-800"
           >
             Save Settings
           </button>
@@ -191,7 +191,7 @@ export const ClinicSettings: React.FC<ClinicSettingsProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 {!u.approved && (
-                  <button onClick={() => approveUser(u.id)} className="bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-emerald-600 transition">Approve</button>
+                  <button onClick={() => approveUser(u.id)} className="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-800 transition">Approve</button>
                 )}
                 <button onClick={() => deleteUser(u.id)} className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-600 transition">Delete</button>
               </div>

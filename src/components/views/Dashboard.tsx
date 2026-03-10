@@ -32,28 +32,28 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
         <button 
           onClick={onNewPrescription}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-200 active:scale-95"
+          className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-200 active:scale-95"
         >
           <Plus size={20} /> Create New Prescription
         </button>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <StatCard label="Total Patients" value={stats.total.toString()} icon={<User className="text-blue-500" />} color="blue" />
-        <StatCard label="Visits Today" value={stats.today.toString()} icon={<Calendar className="text-emerald-500" />} color="emerald" />
-        <StatCard label="Clinic Status" value="Online" icon={<CheckCircle2 className="text-amber-500" />} color="amber" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+        <StatCard label="Total Patients" value={stats.total.toString()} icon={<User className="text-blue-900" />} color="blue" />
+        <StatCard label="Visits Today" value={stats.today.toString()} icon={<Calendar className="text-blue-900" />} color="blue" />
+        <StatCard label="Clinic Status" value="Online" icon={<CheckCircle2 className="text-blue-900" />} color="blue" />
       </div>
 
       <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
           <h2 className="text-lg font-bold text-slate-800">Recent Patient Visits</h2>
-          <button onClick={onViewHistory} className="text-blue-600 font-bold text-sm hover:underline">View All Records</button>
+          <button onClick={onViewHistory} className="text-blue-900 font-bold text-sm hover:underline">View All Records</button>
         </div>
         <div className="divide-y divide-slate-50">
           {patients.slice(0, 5).map(p => (
             <div key={p.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors group cursor-pointer" onClick={() => onSelectPatient(p)}>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-black text-xl">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-900 flex items-center justify-center font-black text-xl">
                   {p.name[0]}
                 </div>
                 <div>
@@ -61,7 +61,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
                   <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">{p.date} • {p.mobile}</p>
                 </div>
               </div>
-              <ChevronRight size={20} className="text-slate-200 group-hover:text-blue-500 transition-colors" />
+              <ChevronRight size={20} className="text-slate-200 group-hover:text-blue-900 transition-colors" />
             </div>
           ))}
           {patients.length === 0 && (

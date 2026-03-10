@@ -50,11 +50,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ active, onNavigate, onResetFor
     <aside className="hidden md:flex flex-col w-64 bg-white border-r border-slate-200 p-6 no-print">
       <div className="flex items-center gap-3 mb-10">
         {logo && (
-          <div className="flex items-center justify-center">
-            <img src={logo} alt="Clinic Logo" className="w-9 h-9 object-contain" />
+          <div className="flex items-center justify-center border-2 border-blue-900 rounded-lg p-1">
+            <img src={logo} alt="Clinic Logo" className="w-8 h-8 object-contain" />
           </div>
         )}
-        <span className="font-black text-xl tracking-tighter text-slate-800">Ahmad Dental</span>
+        <span className="font-black text-xl tracking-tighter text-blue-900">Ahmad Dental</span>
       </div>
 
       <nav className="flex-1 space-y-2">

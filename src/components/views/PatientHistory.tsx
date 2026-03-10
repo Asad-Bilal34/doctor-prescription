@@ -31,7 +31,7 @@ export const PatientHistory: React.FC<PatientHistoryProps> = ({
           <input 
             type="text" 
             placeholder="Search by name or mobile..." 
-            className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 font-medium transition-all"
+            className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-900 font-medium transition-all"
             value={searchTerm}
             onChange={e => onSearchChange(e.target.value)}
           />
@@ -60,7 +60,7 @@ export const PatientHistory: React.FC<PatientHistoryProps> = ({
                 <td className="px-6 py-4 text-right space-x-2">
                   <button 
                     onClick={() => onEdit(p)} 
-                    className="p-2.5 text-blue-600 hover:bg-blue-50 rounded-xl transition-colors" 
+                    className="p-2.5 text-blue-900 hover:bg-blue-50 rounded-xl transition-colors" 
                     title="Edit/View"
                   >
                     <Eye size={18} />
