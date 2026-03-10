@@ -204,7 +204,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/*" element={<ProtectedRoute><MainApp /></ProtectedRoute>} />
+          <Route path="/" element={<ProtectedRoute><MainApp /></ProtectedRoute>} />
+          <Route path="*" element={<ProtectedRoute><MainApp /></ProtectedRoute>} />
         </Routes>
       </AuthProvider>
     </Router>

@@ -53,7 +53,7 @@ export function Login() {
         setPendingApproval(true);
         startPollingApproval();
       } else {
-        navigate('/dashboard');
+        navigate('/');
       }
     } catch (err: any) {
       setError(err.message || 'Login failed');
