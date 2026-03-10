@@ -49,24 +49,14 @@ function authorizeRole(...allowedRoles) {
   };
 }
 
-// Middleware
-const allowedOrigins = [
-  'https://doctor-prescription-six.vercel.app',
-  'http://localhost:5173',
-  'http://localhost:3000'
-];
-
+// Middleware - CORS must be first
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Allow all for now
-    }
-  },
+  origin: '*',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  exposedHeaders: ['Content-Length', 'X-JSON'],
+  maxAge: 86400
 }));
 app.use(express.json());
 
