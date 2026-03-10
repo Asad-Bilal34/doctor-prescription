@@ -50,7 +50,10 @@ function authorizeRole(...allowedRoles) {
 }
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true
+}));
 app.use(express.json());
 
 // Default clinic config used to seed DB if empty
