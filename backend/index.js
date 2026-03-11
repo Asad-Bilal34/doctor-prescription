@@ -14,6 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
+app.options('*', cors());
 const PORT = process.env.PORT;
 
 // Prisma
@@ -51,13 +52,16 @@ function authorizeRole(...allowedRoles) {
 
 // Middleware - CORS must be first
 app.use(cors({
-  origin: '*',
+  origin: [
+    "http://localhost:5173",
+    "https://doctor-prescription-git-main-asad-bilals-projects.vercel.app"
+  ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  exposedHeaders: ['Content-Length', 'X-JSON'],
-  maxAge: 86400
+  methods: ["GET","POST","PUT","DELETE","PATCH"],
+  allowedHeaders: ["Content-Type","Authorization"]
 }));
+
+app.options('*', cors());
 app.use(express.json());
 
 // Default clinic config used to seed DB if empty
