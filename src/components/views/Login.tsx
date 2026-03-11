@@ -19,7 +19,10 @@ export function Login() {
         if (!stored) return;
         const { token } = JSON.parse(stored);
         if (!token) return;
-        const API = (import.meta as any).env.VITE_API_URL || 'http://127.0.0.1:4001';
+        const API = import.meta.env.VITE_API_URL;
+        if (!API) {
+  throw new Error("VITE_API_URL is not defined");
+}
         const res = await fetch(`${API}/api/auth/me`, {
           headers: { Authorization: `Bearer ${token}` }
         });
